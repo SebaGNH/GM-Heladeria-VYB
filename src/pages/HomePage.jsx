@@ -1,25 +1,23 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import { getDocs, collection, getFirestore } from 'firebase/firestore';
-import { Spinner } from '../components/Spinner';
+import { Spinner, Card } from '../components';
 
-const fetchItems = async () => {
+const getItems = async () => {
   const db = getFirestore();
   const itemsRef = collection(db, 'items');
 
-  const querySnapshot = await getDocs(itemsRef);
+  const queryData = await getDocs(itemsRef);
 
-  if (querySnapshot.size === 0) {
+  if (queryData.size === 0) {
     console.log('no results');
   }
 
-  return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  return queryData.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 };
 
 export const HomePage = () => {
-  const { data, isLoading } = useQuery('items', fetchItems);
-
-  console.log(data);
+  const { data, isLoading } = useQuery('items', getItems);
 
   return (
     <>
@@ -27,13 +25,7 @@ export const HomePage = () => {
         {isLoading ? (
           <Spinner/>
         ) : (
-          <ul>
-            {data.map((helado) => (
-              <li key={helado.id}>
-                <p>{helado.name}</p>
-              </li>
-            ))}
-          </ul>
+          <Card data={data}/>
         )}
       </div>
     </>
