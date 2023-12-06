@@ -24,4 +24,14 @@ https://firebasestorage.googleapis.com/v0/b/heladeria-vates.appspot.com/o/Crema-
 https://firebasestorage.googleapis.com/v0/b/heladeria-vates.appspot.com/o/Crema-Frutilla-400x400.png?alt=media&token=6dfe2c9b-8338-42f9-9fa3-8af249bdb9ca
 
 
+
+/*
+        {
+          helados?.map((helado) => {
+            <li key={helado.id}> <p>{helado.name}</p></li>
+            {console.log(helado.name)}
+          })
+        }
+*/
+
  -->

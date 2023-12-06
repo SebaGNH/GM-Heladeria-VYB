@@ -1,17 +1,18 @@
 import React from 'react';
-// import { AppRouter } from './router/AppRouter';
+import { BrowserRouter } from 'react-router-dom';
+import { AppRoutes } from './routes/App.routes';
 import { QueryClientProvider, QueryClient } from 'react-query';
-import { Home  } from './pages/Home';
-import { HomePage  } from './pages/HomePage';
 
 const queryClient = new QueryClient();
 
 const App = () => {
   return (
     <>
-    <QueryClientProvider client={queryClient}>
-      <HomePage/>
-    </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <AppRoutes/>
+        </BrowserRouter>
+      </QueryClientProvider>
     </>
   )
 }

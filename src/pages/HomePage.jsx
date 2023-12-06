@@ -16,14 +16,25 @@ const fetchItems = async () => {
 };
 
 export const HomePage = () => {
-  const { data: items, isLoading } = useQuery('items', fetchItems);
+  const { data, isLoading } = useQuery('items', fetchItems);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  console.log(data);
 
-  console.log(items);
-
-  return <div>Home</div>;
+  return (
+    <>
+      <div className="container">
+        {isLoading ? (
+          <div>Loading...</div>
+        ) : (
+          <ul>
+            {data.map((helado) => (
+              <li key={helado.id}>
+                <p>{helado.name}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </>
+  );
 };
-

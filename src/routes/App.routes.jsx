@@ -1,7 +1,6 @@
 import React from 'react'
 import {Routes, Route} from 'react-router-dom';
-import { FormTask } from '../ts01-task-app/components/FormTask';
-import { HomeNavBar } from './HomeNavBar';
+import { HomePage } from '../pages/HomePage';
 import { NavLink } from 'react-router-dom';
 
 export const AppRoutes = () => {
@@ -13,24 +12,21 @@ export const AppRoutes = () => {
             <div className="collapse navbar-collapse">
               <ul className="navbar-nav me-auto">
 
-                <NavLink to="/FormTask" className="nav-link btn btn-outline-primary">
-                FormTask
+                <NavLink to="/HomePage" className="nav-link btn btn-outline-primary">
+                Home
                 </NavLink>
 
               </ul>
             </div>
           </div>
         </nav>
+      </div>
 
-      <h1>En esta sección están las rutas</h1>
-    </div>
-
-    <Routes>
-      <Route path='/' element={<HomeNavBar />}/>
-      <Route path='/FormTask' element={<FormTask />}/>
-    </Routes>
-
-
+      <Routes>
+        <Route path='/' element={<HomePage />}/>
+        <Route path='/*' element={<HomePage />}/>
+        <Route path='/HomePage' element={<HomePage />}/>
+      </Routes>
     </>
   )
 }
