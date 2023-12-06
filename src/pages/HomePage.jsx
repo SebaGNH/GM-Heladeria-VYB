@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import { getDocs, collection, getFirestore } from 'firebase/firestore';
+import { Spinner } from '../components/Spinner';
 
 const fetchItems = async () => {
   const db = getFirestore();
@@ -24,7 +25,7 @@ export const HomePage = () => {
     <>
       <div className="container">
         {isLoading ? (
-          <div>Loading...</div>
+          <Spinner/>
         ) : (
           <ul>
             {data.map((helado) => (
