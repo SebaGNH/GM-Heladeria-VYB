@@ -6,7 +6,7 @@ export const AppRoutes = () => {
   return (
     <>
       <div className='container'>
-        <nav className="navbar navbar-expand-sm navbar-dark">
+        <nav className="navbar navbar-expand-sm navbar-primary">
           <div className="container-fluid">
             <div className="collapse navbar-collapse">
               <ul className="navbar-nav me-auto">
